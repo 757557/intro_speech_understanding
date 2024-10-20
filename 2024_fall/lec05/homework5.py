@@ -16,7 +16,9 @@ def center_of_gravity(x):
     @result:
     c (scalar): x's center of gravity
     '''
-    c = 0  # change this line
+    N = len(x)
+    n = np.arange(N)
+    c = np.dot(n,x)/np.sum(x)
     return c
 
 def matched_identity(x):
@@ -30,27 +32,27 @@ def matched_identity(x):
     @result:
     I (array): a 2d numpy array: an NxN identity matrix
     '''
-    I =  0 # change this line
+    N = len(x)
+    I = np.eye(N)
     return I
 
 def sine_and_cosine(t_start, t_end, t_steps):
     '''
     Create a time axis, and compute its cosine and sine.
     Hint: use np.linspace, np.cos, and np.sin
-    
+
     @param:
     t_start (scalar): the starting time
     t_end (scalar): the ending time
     t_steps (scalar): length of t, x, and y
-    
+
     @result:
     t (array of length t_steps): time axis, t_start through t_end inclusive
     x (array of length t_steps): cos(t)
     y (array of length t_steps): sin(t)
     '''
     # change these lines
-    t = 0 
-    x = 0
-    y = 0
-    # end changes here
+    t = np.linspace(t_start, t_end, t_steps)
+    x = np.cos(t)
+    y = np.sin(t)
     return t, x, y
