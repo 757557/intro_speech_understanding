@@ -16,9 +16,15 @@ def waveform_to_frames(waveform, frame_length, step):
     For every n and t such that 0 <= t*step+n <= N-1, it should be the case that 
        frames[n,t] = waveform[t*step+n]
     '''
-    raise RuntimeError("You need to change this part")
+    #raise RuntimeError("You need to change this part")
+    num_frames = int((len(wa)-frame_length)/step)
+    frames = np.zeros((frame_length,num_frames))
+    for frame in np.arange(num_frames):
+        frames[:,frame] = waveform[frame*step+frame_length]
+    return frames
 
-def frames_to_stft(frames):
+def frames_to_stft(frames):       
+de
     '''
     Take the FFT of every column of the frames matrix.
     
@@ -28,9 +34,11 @@ def frames_to_stft(frames):
     @returns:
     stft (np.ndarray((frame_length,num_frames))) - the STFT (complex-valued)
     '''
-    raise RuntimeError("You need to change this part")
+    #raise RuntimeError("You need to change this part")def sstft = np.fft.fft(frames, axis=0)
+    return stft
 
-def stft_to_spectrogram(stft):
+def stft_to_spectrogram(stft)
+    tft_to_spectrogram(stft):
     '''
     Calculate the level, in decibels, of each complex-valued sample of the STFT,
     normalized so the highest value is 0dB, 
@@ -44,8 +52,10 @@ def stft_to_spectrogram(stft):
     
     The spectrogram should be expressed in decibels (20*log10(abs(stft)).
     np.amax(spectrogram) should be 0dB.
-    np.amin(spectrogram) should be no smaller than -60dB.
+    np.amin(spectrogram) should be no sm#aller than -60dB.
     '''
-    raise RuntimeError("You need to change this part")
+    raise RuntimeError("Y    mstft = np.abs(stft)
+    spectrogram = 20*np.log10(np.maximum(0.001, mstft/np.amax(mstft)))
+    return spectrogramou need to change this part")
 
 
